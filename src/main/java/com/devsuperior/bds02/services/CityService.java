@@ -31,7 +31,6 @@ public class CityService {
     @Transactional
     public CityDTO insrt(CityDTO dto) {
         City entity = new City();
-        entity.setId(dto.getId());
         entity.setName(dto.getName());
         entity = repository.save(entity);
         return new CityDTO(entity);

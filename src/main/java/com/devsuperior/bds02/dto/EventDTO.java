@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import com.devsuperior.bds02.entities.Event;
+import org.antlr.v4.runtime.misc.NotNull;
 
 public class EventDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
 	private String name;
 	private LocalDate date;
