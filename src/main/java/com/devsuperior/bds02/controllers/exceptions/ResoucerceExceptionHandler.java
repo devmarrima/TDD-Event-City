@@ -18,14 +18,14 @@ public class ResoucerceExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<StandardError> notFound(ResourceNotFoundException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.NOT_FOUND;
-        StandardError err = new StandardError(Instant.now(), status.value(), "Resource not found", e.getMessage(), request.getRequestURI());
+        StandardError err = new StandardError(Instant.now(), status.value(), "Resource not found!", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 
         @ExceptionHandler(DataBaseException.class)
     public ResponseEntity<StandardError> dataBase(DataBaseException e, HttpServletRequest request){
-        HttpStatus status = HttpStatus.CONFLICT;
-        StandardError err = new StandardError(Instant.now(), status.value(), "Resource not found", e.getMessage(), request.getRequestURI());
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError err = new StandardError(Instant.now(), status.value(), "Conflict!", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 
